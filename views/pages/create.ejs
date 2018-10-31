@@ -6,20 +6,7 @@
 
 <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Home</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                  <div class="navbar-nav"></div>
-             
-                    <a class="nav-item nav-link" href="#">Search</a>
-                    <a class="nav-item nav-link" href="#">Create</a>
-                    <a class="nav-item nav-link" href="#">Admin</a>
-                  </div>
-                </div>
-              </nav>
+        
 
               <div class="jumbotron">
                     <h1>Event Management System</h1>
@@ -27,7 +14,7 @@
                       activities as well as registration.
                     </p></div>
 
-    <form action="/management/create" method="POST">
+    <form action="/create" method="POST">
 
 
         <div class="row">
@@ -35,36 +22,29 @@
 
             <div class="col-xl-6 col-12">
                 <label>Event Name:</label>
-                <input type="text" class="form-control" name="Event[Event Name]" required>
+                <input type="text" class="form-control" name="eventname" required>
 
 
                 <div>
                     <label>Short Description:</label>
-                    <textarea class="form-control" name="Event[Short Description]" rows="3" required>
-                    </textarea>
+                    <textarea class="form-control" name="shortdescription" rows="3" required></textarea>
                 </div>
 
                 <div>
                         <label>Full Description:</label>
-                        <textarea class="form-control" name="Event[Full Description]" rows="6" required>
-                            </textarea>
+                        <textarea class="form-control" name="fulldescription" rows="6" required></textarea>
                     </div>
             </div>
-
-
 
             <div class="col-xl-6 col-12">
                 <div>
                     <label>image URL:</label>
-                    <input type="text" class="form-control" name="Event[iamge URL]" required>
+                    <input type="text" class="form-control" name="imageurl" required>
                 </div>
-
-
-
 
                 <div>
                     <label>Organizer:</label>
-                    <select onchange="OrganizerSelected(this.value)" class="form-control">
+                    <select onchange="OrganizerSelected(this.value)" class="form-control" name="organizer" required>
                         <option value="nan">Please select an Organizer:</option>
                         <option value="NAME1">NAME1</option>
                         <option value="NAME2">NAME2</option>
@@ -74,27 +54,19 @@
 
                 <div>
                     <label>Time</label>
-                    <input type="text" class="form-control" $('#sandbox-container input').datepicker({
-                    });>
+                   
+                    <input type="text" class="form-control " id="datepicker"  name="eventtime">
                     
                 </div>
 
                 <div>
                     <label>Event Date:</label>
-                    <input type="text" class="form-control" name="Event[Event Date]" required>
+                    <input type="text" class="form-control datepicker" name="eventdate" required>
                 </div>
-
-
-                <div>
-                    <label>Time:</label>
-                    <input type="text" class="form-control" name="Event[Time]" required>
-                    
-                </div>
-
 
                 <div>
                     <label>Venue:</label>
-                    <select onchange="VenueSelected(this.value)" class="form-control">
+                    <select onchange="VenueSelected(this.value)" class="form-control" name="venue" required>
                             <option value="nan">Please select a Avenue:</option>
                             <option value="NAME1">NAME1</option>
                             <option value="NAME2">NAME2</option>
@@ -105,12 +77,12 @@
 
                 <div>
                     <label>Quota:</label>
-                    <input type="text" class="form-control" name="Event[Quota]" required>
+                    <input type="text" class="form-control" name="eventquota" required>
                 </div>
 
                 <div>
 
-                        <input name="box" type="checkbox"  value="Highlighted Event" > Highlighted Event
+                        <input type="checkbox"  value="Highlighted Event" name="highlighted"> Highlighted Event
                     
 
                 </div>
@@ -121,4 +93,6 @@
         </div>
     </form>
 
+
+    
 </body>

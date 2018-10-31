@@ -10,21 +10,25 @@ module.exports = {
   attributes: {
 
 
-    EventName: {type: "string"},
+    eventname: {type: "string" ,required :true},
     
-    Venue: {type: "string"},
+    venue: {type: "string",required :true},
 
-    Organizer:{type:"string"},
+    organizer:{type:"string",required :true},
 
-    Quato:{type:"number"},
+    eventquota:{type:"string",required :true},
 
-    Shortdescription:{type:"string"},
+    shortdescription:{type:"string",required :true},
 
-    Longdescription:{type:"string"},
+    fulldescription:{type:"string",required :true},
 
-    
+    eventdate:{type:"string",required :true},
 
-    Date:{type:"string"},
+    eventtime:{type:"string",required:true},
+
+    imageurl:{type:"string",required :true},
+
+    highlighted:{type:"string",required:true}
 
 
 

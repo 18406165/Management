@@ -1,99 +1,105 @@
 <body>
     
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Home</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                  <div class="navbar-nav"></div>
-             
-                    <a class="nav-item nav-link" href="#">Search</a>
-                    <a class="nav-item nav-link" href="#">Create</a>
-                    <a class="nav-item nav-link" href="#">Admin</a>
-                  </div>
-                </div>
-              </nav>
+        
 
-              <div class="jumbotron">
+               <form action="/management/create" method="POST">
+            
+            <form action="update" method="POST">
+
+                <div class="jumbotron">
                     <h1>Event Management System</h1>
                     <p>HKBU Event Management System is a web-based system for department and student societies to broadcast events and
                       activities as well as registration.
-                    </p></div> <form action="/management/create" method="POST">
-            
-                    
-              <div class="row"> 
-            
-            <div class="card col-xl-6 col-12">
+                    </p></div>
+
+    <form action="create" method="POST">
+
+
+        <div class="row">
+
+
+            <div class="col-xl-6 col-12">
                 <label>Event Name:</label>
                 <input type="text" class="form-control" name="Event[Event Name]" required>
+
+
+                <div>
+                    <label>Short Description:</label>
+                    <textarea class="form-control" name="Event[Short Description]" rows="3" required>
+                    </textarea>
+                </div>
+
+                <div>
+                        <label>Full Description:</label>
+                        <textarea class="form-control" name="Event[Full Description]" rows="6" required>
+                            </textarea>
+                    </div>
+                    <button type="delete" class="btn btn-danger">Delete</button>
             </div>
 
 
-            <div class="card col-xl-6 col-12">
-                <label>image URL:</label>
-                <input type="text" class="form-control" name="Event[iamge URL]" required>
-            </div>
 
-            <div class="card col-xl-6 col-12">
-                <label>Short Description:</label>
-                <textarea class="form-control" name="Event[Short Description]" rows="3" required>
-                    </textarea> 
-            </div>
+            <div class="col-xl-6 col-12">
+                <div>
+                    <label>image URL:</label>
+                    <input type="text" class="form-control" name="Event[iamge URL]" required>
+                </div>
 
-                    <div class="form-group card col-xl-6 col-12">
-                            <label>Full Description:</label>
-                            <textarea class="form-control" name="Event[Full Description]" rows="6" required>
-                                </textarea> 
-            </div>
-   
-            
-                    <div class="card col-xl-6 col-12">
+                <div>
                     <label>Organizer:</label>
-                    <select onchange="OrganizerSelected(this.value)" >
+                    <select onchange="OrganizerSelected(this.value)" class="form-control">
                         <option value="nan">Please select an Organizer:</option>
                         <option value="NAME1">NAME1</option>
                         <option value="NAME2">NAME2</option>
                         <option value="NAME2">NAME2</option>
                     </select>
                 </div>
-            
-                
 
-            <div class="form-group card col-xl-6 col-12">
-                    <label>Event Date:</label>
-                    <input type="text" class="form-control" name="Event[Event Date]" required>
+                <div>
+                    <label>Time</label>
+                   
+                    <input type="text" class="form-control" data-provide=“datepicker” name="date">
+                    
+                </div>
+
+               
+
+                <div>
+                        <label>Event Date:</label>
+                        <input type="text" class="form-control datepicker" name="Event[Event Date]" required>
+                    </div>
+
+                <div>
+                    <label>Venue:</label>
+                    <select onchange="VenueSelected(this.value)" class="form-control">
+                            <option value="nan">Please select a Avenue:</option>
+                            <option value="NAME1">NAME1</option>
+                            <option value="NAME2">NAME2</option>
+                            <option value="NAME2">NAME2</option>
+                        </select>
                 </div>
 
 
-                <div class="form-group card col-xl-6 col-12">
-                        <label>Time:</label>
-                        <input type="text" class="form-control" name="Event[Time]" required>
-                    </div>
+                <div>
+                    <label>Quota:</label>
+                    <input type="text" class="form-control" name="Event[Quota]" required>
+                </div>
+
+                <div>
+
+                        <input name="box" type="checkbox"  value="Highlighted Event" > Highlighted Event
+                    
+
+                </div>
 
 
-                    <div class="form-group card col-xl-6 col-12">
-                            <label>Venue:</label>
-                            <input type="text" class="form-control" name="Event[Organizer]" required>
-                        </div>
-
-
-                        <div class="form-group card col-xl-6 col-12">
-                                <label>Quota:</label>
-                                <input type="text" class="form-control" name="Event[Quota]" required>
-                            </div>
-                            <div class=" card col-xl-6 col-12">
-                                
-                                
-                         <label><input type="checkbox" class="form-control" name="Event[Organizer]" required>Highlighted Event</label>
-
-                            </div>
-
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="delete" class="btn btn-primary">Delete</button>
-        
-        
-        </form>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
     
-</body>
+        
+        </div>
+        </form>
+
+        
+    
+    </body>

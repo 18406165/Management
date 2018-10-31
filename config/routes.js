@@ -24,12 +24,12 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/':              { view: 'pages/homepages'},
-  '/admin':         { view: 'pages/admin'},
+  '/homepages':     { view: 'pages/homepages'},
+  // '/admin':         { view: 'pages/admin'},
   '/create':        { view: 'pages/create'},
   '/search':        { view: 'pages/search'},
   '/update':        { view: 'pages/update'},
-  '/details':        { view: 'pages/details'},
+  '/details':       { view: 'pages/details'},
 
   /***************************************************************************
   *                                                                          *
@@ -57,6 +57,14 @@ module.exports.routes = {
   //  ╔╦╗╦╔═╗╔═╗
   //  ║║║║╚═╗║
   //  ╩ ╩╩╚═╝╚═╝
+
+"POST /create":"ManagementController.create",
+"POST /update":"ManagementController.update",
+"GET /pages/admin":"ManagementController.admin",
+
+
+
+
 
 
 };
