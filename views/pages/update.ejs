@@ -1,105 +1,112 @@
 <body>
-    
-        
 
-               <form action="/management/create" method="POST">
-            
-            <form action="update" method="POST">
+    <div class="jumbotron">
+        <h1>Event Management System</h1>
+        <p>HKBU Event Management System is a web-based system for department and student societies to broadcast events
+            and
+            activities as well as registration.
+        </p>
+    </div>
 
-                <div class="jumbotron">
-                    <h1>Event Management System</h1>
-                    <p>HKBU Event Management System is a web-based system for department and student societies to broadcast events and
-                      activities as well as registration.
-                    </p></div>
-
-    <form action="create" method="POST">
-
+    <form action="/update" method="POST">
 
         <div class="row">
 
-
             <div class="col-xl-6 col-12">
                 <label>Event Name:</label>
-                <input type="text" class="form-control" name="Event[Event Name]" required>
+                <input type="text" class="form-control" name="eventname" required>
 
 
                 <div>
                     <label>Short Description:</label>
-                    <textarea class="form-control" name="Event[Short Description]" rows="3" required>
+                    <textarea class="form-control" name="shortdescription]" rows="3" required>
                     </textarea>
                 </div>
 
                 <div>
-                        <label>Full Description:</label>
-                        <textarea class="form-control" name="Event[Full Description]" rows="6" required>
+                    <label>Full Description:</label>
+                    <textarea class="form-control" name="fulldescription]" rows="6" required>
                             </textarea>
-                    </div>
-                    <button type="delete" class="btn btn-danger">Delete</button>
+                </div>
+                
             </div>
-
-
 
             <div class="col-xl-6 col-12">
                 <div>
                     <label>image URL:</label>
-                    <input type="text" class="form-control" name="Event[iamge URL]" required>
+                    <input type="text" class="form-control" name="iamgeurl" required>
                 </div>
 
                 <div>
                     <label>Organizer:</label>
-                    <select onchange="OrganizerSelected(this.value)" class="form-control">
+                    <select onchange="OrganizerSelected(this.value)" class="form-control" name="organizer" required>
                         <option value="nan">Please select an Organizer:</option>
+                        <option value="NAME1">NAMET</option>
+                        <option value="NAME2">NAMER</option>
+                        <option value="NAME2">NAMEN</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Time</label>
+
+                    <input type="text" class="form-control" data-provide=“datepicker” name="time">
+
+                </div>
+
+
+
+                <div>
+                    <label>Event Date:</label>
+                    <input type="text" class="form-control datepicker" name="eventdate" required>
+                </div>
+
+                <div>
+                    <label>Venue:</label>
+                    <select onchange="VenueSelected(this.value)" class="form-control" name="venue">
+                        <option value="nan">Please select a Avenue:</option>
                         <option value="NAME1">NAME1</option>
                         <option value="NAME2">NAME2</option>
                         <option value="NAME2">NAME2</option>
                     </select>
                 </div>
 
-                <div>
-                    <label>Time</label>
-                   
-                    <input type="text" class="form-control" data-provide=“datepicker” name="date">
-                    
-                </div>
-
-               
-
-                <div>
-                        <label>Event Date:</label>
-                        <input type="text" class="form-control datepicker" name="Event[Event Date]" required>
-                    </div>
-
-                <div>
-                    <label>Venue:</label>
-                    <select onchange="VenueSelected(this.value)" class="form-control">
-                            <option value="nan">Please select a Avenue:</option>
-                            <option value="NAME1">NAME1</option>
-                            <option value="NAME2">NAME2</option>
-                            <option value="NAME2">NAME2</option>
-                        </select>
-                </div>
-
 
                 <div>
                     <label>Quota:</label>
-                    <input type="text" class="form-control" name="Event[Quota]" required>
+                    <input type="text" class="form-control" name="eventquota" required>
                 </div>
 
                 <div>
 
-                        <input name="box" type="checkbox"  value="Highlighted Event" > Highlighted Event
-                    
+                    <input name="box" type="checkbox" value="Highlighted Event" name="highlighted">Highlighted Event
+
 
                 </div>
 
 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-    
-        
-        </div>
-        </form>
 
+
+        </div>
         
+    </form>
+    <form  action="/delete/<%Management.id%>" method=POST>
+        <button type="delete" class="btn btn-danger" >Delete</button>
+    </form>
+   
+
+
+</body>
+
+
+<!--update.ejs-->
+<form action="/Management/update/<%= management.id %>" method="POST">
+    <div class="form-group">
+        <label>Event Name</label>
+        <input type="text" class="form-control" name="eventname" value="<%= management.name %>" required>
+    </div>
     
-    </body>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -35,7 +35,7 @@ view: async function (req, res) {
 
     if (!model) return res.notFound();
 
-    return res.view('management/home', { Management: model });
+    return res.view('management/homepages', { Management: model });
 
 },
 
@@ -49,14 +49,12 @@ update: async function (req, res) {
 
         if (!model) return res.notFound();
 
-        return res.view('pages/update', { person: model });
+        return res.view('pages/update', { Management: model });
 
     } else {
 
         if (typeof req.body.Management === "undefined")
             return res.badRequest("Form-data not received.");}
-
-
 
 
         var models = await Management.update(req.params.id).set({
@@ -69,8 +67,6 @@ update: async function (req, res) {
 
 
 },
-
-
 
 // action - delete 
 delete: async function (req, res) {
@@ -103,41 +99,32 @@ paginate: async function (req, res) {
 
     var numOfPage = Math.ceil(await Person.count() / numOfItemsPerPage);
 
-    return res.view('person/paginate', { persons: models, count: numOfPage });
+    return res.view('management/paginate', { management: models, count: numOfPage });
 },
 
+// search function
+search: async function (req, res) {
 
+    const qName = req.query.name || "";
+    const qAge = parseInt(req.query.age);
 
-// action - update
-update: async function (req, res) {
+    if (isNaN(qAge)) {
 
-    var message = Person.getInvalidIdMsg(req.params);
-
-    if (message) return res.badRequest(message);
-
-    if (req.method == "GET") {
-
-        var model = await Person.findOne(req.params.id);
-
-        if (!model) return res.notFound();
-
-        return res.view('person/update', { person: model });
+        var models = await Management.find({
+            where: { name: { contains: qName } },
+            sort: 'name'
+        });
 
     } else {
 
-        if (typeof req.body.Person === "undefined")
-            return res.badRequest("Form-data not received.");
-
-        var models = await Person.update(req.params.id).set({
-            name: req.body.Person.name,
-            age: req.body.Person.age
-        }).fetch();
-
-        if (models.length == 0) return res.notFound();
-
-        return res.ok("Record updated");
+        var models = await Person.find({
+            where: { name: { contains: qName }, age: qAge },
+            sort: 'name'
+        });
 
     }
+
+    return res.view('person/index', { persons: models });
 },
 
 // action - index
